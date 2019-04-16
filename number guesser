@@ -1,0 +1,24 @@
+import random
+print("Welcome to the Secret Number Challenge")
+print("Can you guess the number that i'm thinking? I'll give you 3 chances and hints along the way, good luck! ")
+
+secret_answer = str(random.randint(1, 24))
+user_guess = str("")
+number_of_attempts = 0
+attempt_limit = 3
+out_of_attempts = False
+
+while secret_answer != user_guess and not out_of_attempts:
+    if number_of_attempts < attempt_limit:
+        user_guess = str(input("The secret number is between 1 and 20! good luck: "))
+        number_of_attempts += 1
+        if secret_answer < user_guess:
+            print("guess lower")
+        if secret_answer > user_guess:
+            print("guess higher")
+    else:
+        out_of_attempts = True
+if out_of_attempts:
+    print("sorry you're out of attempts, better luck next time")
+else:
+    print("congrats!!!! I knew you could do it, you took " + str(number_of_attempts) + " chance(s) to get it right")
